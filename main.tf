@@ -16,9 +16,8 @@ resource "aws_instance" "jenkins" {
     volume_size = "30"
     delete_on_termination = false
   }
-  provisioner "local-exec" {
-    command = "/bin/bash user_data.sh"
-  }
+  user_data = "${file("user_data.sh")}"
+
   tags = {
     Name = "Jenkins"
   }
@@ -29,15 +28,21 @@ resource "aws_security_group" "instance" {
 	name = "terraform-tcp-security-group"
 
 	ingress {
-		from_port = 8080
+		from_port = 0
 		to_port = 8080
 		protocol = "tcp"
 		cidr_blocks = ["0.0.0.0/0"]
 	}
 	ingress {
-		from_port = 22
+		from_port = 0
 		to_port = 22
 		protocol = "tcp"
+		cidr_blocks = ["0.0.0.0/0"]
+	}
+	egress {
+		from_port = 0
+		to_port = 0
+		protocol = "-1"
 		cidr_blocks = ["0.0.0.0/0"]
 	}
 }

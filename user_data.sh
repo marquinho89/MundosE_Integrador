@@ -2,7 +2,7 @@
 # Update package manager sources
 sudo apt-get update
 #Install unzip
-sudo apt install unzip
+sudo apt-get install unzip
 # Download AWS CLI https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html#cliv2-linux-install
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 # Unzip and install the AWS CLI Console
@@ -47,4 +47,4 @@ sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.rel
 sudo apt update
 
 # Install Terraform
-sudo apt install terraform
+sudo apt-get install terraform
