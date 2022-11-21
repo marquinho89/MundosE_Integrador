@@ -1,0 +1,18 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  name: pool_MundosE #Pool creado 
+  vmImage: ubuntu-latest # Imagen a usar 
+
+steps:
+  - task: KubernetesManifest@0
+    inputs:
+      action: 'deploy'
+      kubernetesServiceConnection: 'eks-mundosE'
+      manifests: 'Pipeline_MundosE/nginx-deployment.yaml'
