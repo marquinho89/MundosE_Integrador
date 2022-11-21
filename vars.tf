@@ -5,6 +5,6 @@ variable "secret_key" {
     default = "eDNVe3Pm58Mc/gVSuUZuLt7T38u6DtqxrIxtuyL1"
 }
 
-variable "USER1" {
-    default = "root"
+variable "aws_region" {
+    default = "us-east-1"
 }
