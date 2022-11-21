@@ -7,7 +7,8 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  name: pool_MundosE #Pool creado 
+  vmImage: ubuntu-latest # Imagen a usar 
 
 steps:
   - task: KubernetesManifest@0
